@@ -1,0 +1,16 @@
+heartbeat.monitors:
+- type: http
+  schedule: '@every 30s'
+  urls:
+    - http://leader.cinext-prod.mesos:8080
+
+processors:
+- add_cloud_metadata: ~
+
+cloud.id: "dio:dXMtd2VzdDEuZ2NwLmNsb3VkLmVzLmlvJDJhYzI2OGE3NmU3NzQ5ZTg4MWQ4YjNhMmY4NGNkNmJiJDA0OGU2NDQ0YTY1ZjRhYTlhMTRkNTQzY2IwZWY0NDVh"
+cloud.auth: '${ELASTICSEARCH_CLOUD_AUTH:}'
+
+output.elasticsearch:
+  hosts: '048e6444a65f4aa9a14d543cb0ef445a.us-west1.gcp.cloud.es.io:9200'
+  username: '${ELASTICSEARCH_USERNAME:}'
+  password: '${ELASTICSEARCH_PASSWORD:}'
