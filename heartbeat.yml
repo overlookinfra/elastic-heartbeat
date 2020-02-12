@@ -6,9 +6,15 @@ heartbeat.monitors:
 
 processors:
 - add_cloud_metadata: ~
+- add_observer_metadata:
+    netinfo.enabled: true
+    cache.ttl: 10m
+    observer.geo.name: '${ELASTICSEARCH_BEAT_NAME}'
+
 
 cloud.id: '${ELASTICSEARCH_CLOUD_ID:}'
 cloud.auth: '${ELASTICSEARCH_CLOUD_AUTH:}'
+http.enabled: true
 
 output.elasticsearch:
   hosts: ['https://2ac268a76e7749e881d8b3a2f84cd6bb.us-west1.gcp.cloud.es.io:9243']
