@@ -2,8 +2,8 @@ heartbeat.monitors:
 - type: http
   schedule: '@every 30s'
   urls:
-    - http://leader.cinext-prod.mesos:8080
-
+    - http://leader.cinext-prod.mesos:8080/ping
+    
 processors:
 - add_cloud_metadata: ~
 - add_observer_metadata:
